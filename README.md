@@ -107,6 +107,70 @@ The tasmota home page should now be something alike:
 
 <img src="module-configured-as-sonoff-pow-r2.png">
 
+That page shows the data that corresponds to the following [HTTP API Commands](https://tasmota.github.io/docs/#/Commands).
+
+Get the device module name:
+
+    http://192.168.1.79/cm?cmnd=Module
+
+```json
+{
+    "Module": {
+        "43": "Sonoff Pow R2"
+    }
+}
+```
+
+Get the device friendly name:
+
+    http://192.168.1.79/cm?cmnd=FriendlyName
+
+Which returns:
+
+```json
+{
+    "FriendlyName1": "Tasmota"
+}
+```
+
+Get the sensors data:
+
+    http://192.168.1.79/cm?cmnd=Status%208
+
+Which returns:
+
+```json
+{
+    "StatusSNS": {
+        "Time": "2020-01-28T20:56:51",
+        "ENERGY": {
+            "TotalStartTime": "2020-01-28T20:21:32",
+            "Total": 0,
+            "Yesterday": 0,
+            "Today": 0,
+            "Power": 0,
+            "ApparentPower": 0,
+            "ReactivePower": 0,
+            "Factor": 0,
+            "Voltage": 0,
+            "Current": 0
+        }
+    }
+}
+```
+
+Get the relay state:
+
+    http://192.168.1.79/cm?cmnd=Power0
+
+Which returns:
+
+```json
+{
+    "POWER": "OFF"
+}
+```
+
 ## Sonoff Basic
 
 The programming process is alike the sonoff pow r2, except for the memory size.
